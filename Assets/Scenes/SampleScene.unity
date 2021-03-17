@@ -372,8 +372,14 @@ PrefabInstance:
     - target: {fileID: 843061786117019445, guid: 6bdb7c1d39fd3044db0f1799d724b638,
         type: 3}
       propertyPath: difficulty
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 843061786117019445, guid: 6bdb7c1d39fd3044db0f1799d724b638,
+        type: 3}
+      propertyPath: displayCode
+      value: 
+      objectReference: {fileID: 1367032457810212484, guid: 44c6930ada4c3bf41bcd867d577e20d4,
+        type: 3}
     - target: {fileID: 3329599763361656639, guid: 6bdb7c1d39fd3044db0f1799d724b638,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -674,6 +680,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3329599764589543446, guid: 6bdb7c1d39fd3044db0f1799d724b638,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329599764589543446, guid: 6bdb7c1d39fd3044db0f1799d724b638,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329599764589543446, guid: 6bdb7c1d39fd3044db0f1799d724b638,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3329599764608484658, guid: 6bdb7c1d39fd3044db0f1799d724b638,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -919,6 +940,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 6171975850968287247, guid: 6bdb7c1d39fd3044db0f1799d724b638,
+        type: 3}
+      propertyPath: m_FillCenter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6683440693031710784, guid: 6bdb7c1d39fd3044db0f1799d724b638,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -948,6 +974,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231798433927679112, guid: 6bdb7c1d39fd3044db0f1799d724b638,
+        type: 3}
+      propertyPath: m_ChildForceExpandWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231798433927679112, guid: 6bdb7c1d39fd3044db0f1799d724b638,
+        type: 3}
+      propertyPath: m_ChildForceExpandHeight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bdb7c1d39fd3044db0f1799d724b638, type: 3}

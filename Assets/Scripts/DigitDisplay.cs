@@ -1,5 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using System.Linq;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,30 +15,22 @@ public class DigitDisplay : MonoBehaviour
         HARD
     }
 
-    /*[SerializeField] private Sprite[] digits;
-    [SerializeField] private Image[] characters;*/
-    //public Transform EntriesRoot;
     [SerializeField] private Text tempCode;
     [SerializeField] private Difficulty difficulty;
-    private Text displayCode;
     private int maxDigitCount;
-    private int currentDigitCount = 0;
+    //private int index;
 
-    //private string codeSequence;
+    private Text displayCode;
+    int counter = 0;
+
+    //List<Text> displayCode = new List<Text>();
+    /*    List<int> prev = new List<int>();
+        List<int> next = new List<int>();*/
+
+    //private int currentDigitCount = 0;
 
     private void Start()
     {
-        /*displayCode = gameObject.GetComponentInChildren<Text>();
-
-        displayCode.text = "";*/
-
-        //codeSequence = "";
-
-        /*for (int i = 0; i < characters.Length; i++)
-        {
-            characters[i].sprite = digits[10];
-        }*/
-
         if (difficulty == Difficulty.EASY)
             maxDigitCount = 3;
         else if (difficulty == Difficulty.NORMAL)
@@ -43,149 +38,157 @@ public class DigitDisplay : MonoBehaviour
         if (difficulty == Difficulty.HARD)
             maxDigitCount = 5;
 
-        PressButton.ButtonPressed += AddDigitToCode;
-    }
+        //index = maxDigitCount;
 
-    private void AddDigitToCode(string digitEntered)
-    {
-/*        switch (difficulty)
+        //displayCode = new Text[maxDigitCount];
+
+        for (int i = 0; i < maxDigitCount; i++)
         {
-            case Difficulty.EASY:*/
-                if (currentDigitCount < maxDigitCount)
-                {
-                    EnterCode(digitEntered);
-                    currentDigitCount++;
-                }
-/*                break;
-            case Difficulty.NORMAL:
-                if (currentDigitCount >= maxDigitCount)
-                {
-                    EnterCode(digitEntered);
-                    currentDigitCount++;
-                }
-                break;
-            case Difficulty.HARD:
-                if (currentDigitCount >= maxDigitCount)
-                {
-                    EnterCode(digitEntered);
-                    currentDigitCount++;
-                }
-                break;
-        } */
+            CreateTextObject(); //i
+        }
 
-        //Reset/cancel last character
+        PressButton.ButtonPressed += EnterCode;
     }
+
+    /*    private void AddDigitToCode(string digitEntered)
+        {
+
+            if (currentDigitCount < maxDigitCount)
+            {
+                EnterCode(digitEntered);
+                currentDigitCount++;
+            }
+
+            //Reset/cancel last character
+        }*/
 
     private void EnterCode(string digitEntered)
     {
         switch (digitEntered)
         {
             case "Zero":
-                //displayCode.text += 0;
-                //DisplayCodeSequence(0);
-                GenerateTextInstance(0);
+                GenerateText(0);
                 break;
             case "One":
-                //displayCode.text += 1;
-                //DisplayCodeSequence(1);
-                GenerateTextInstance(1);
+                GenerateText(1);
                 break;
             case "Two":
-                //displayCode.text += 2;
-                //DisplayCodeSequence(2);
-                GenerateTextInstance(2);
+                GenerateText(2);
                 break;
             case "Three":
-                //displayCode.text += 3;
-                //DisplayCodeSequence(3);
-                GenerateTextInstance(3);
+                GenerateText(3);
                 break;
             case "Four":
-                //displayCode.text += 4;
-                //DisplayCodeSequence(4);
-                GenerateTextInstance(4);
+                GenerateText(4);
                 break;
             case "Five":
-                //displayCode.text += 5;
-                //DisplayCodeSequence(5);
-                GenerateTextInstance(5);
+                GenerateText(5);
                 break;
             case "Six":
-                //displayCode.text += 6;
-                //DisplayCodeSequence(6);
-                GenerateTextInstance(6);
+                GenerateText(6);
                 break;
             case "Seven":
-                //displayCode.text += 7;
-                //DisplayCodeSequence(7);
-                GenerateTextInstance(7);
+                GenerateText(7);
                 break;
             case "Eight":
-                //displayCode.text += 8;
-                //DisplayCodeSequence(8);
-                GenerateTextInstance(8);
+                GenerateText(8);
                 break;
             case "Nine":
-                //displayCode.text += 9;
-                //DisplayCodeSequence(9);
-                GenerateTextInstance(9);
+                GenerateText(9);
                 break;
         }
+
+        
     }
 
-    private void GenerateTextInstance(int digitEntered)
+    private void GenerateText(int digitEntered)
     {
-        // var displayCode = Resources.Load("Digit") as Text;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (counter == 0 && counter < maxDigitCount)
+            {
+                var textChildren = gameObject.transform.GetChild(0);
+                displayCode = textChildren.GetComponent<Text>();
+                displayCode.text += digitEntered;
+                counter++;
+                break;
+            }
+            else if (counter == 1 && counter < maxDigitCount)
+            {
+                var textChildren = gameObject.transform.GetChild(1);
+                displayCode = textChildren.GetComponent<Text>();
+                displayCode.text += digitEntered;
+                counter++;
+                break;
+            }
+            else if (counter == 2 && counter < maxDigitCount)
+            {
+                var textChildren = gameObject.transform.GetChild(2);
+                displayCode = textChildren.GetComponent<Text>();
+                displayCode.text += digitEntered;
+                counter++;
+                break;
+            }
+            else if (counter == 3 && counter < maxDigitCount)
+            {
+                var textChildren = gameObject.transform.GetChild(3);
+                displayCode = textChildren.GetComponent<Text>();
+                displayCode.text += digitEntered;
+                counter++;
+                break;
+            }
+            else if (counter == 4 && counter < maxDigitCount)
+            {
+                var textChildren = gameObject.transform.GetChild(4);
+                displayCode = textChildren.GetComponent<Text>();
+                displayCode.text += digitEntered;
+                counter++;
+                break;
+            }
+        }
+        
 
-        CreateTextObject();
-        //displayCode.transform.SetParent(CanvasRenderer.transform, false);
+        
+        //int counter = 1;
 
-        displayCode.text += digitEntered;
+        /*for (int i = 0; i < displayCode.Count; i++)
+        {
+            Debug.Log("dfdsaaaaa");
+        }*/
+
+        /*foreach (Text item in displayCode)
+        {
+
+            if (item.text.Length < 1)
+            {
+                item.text += digitEntered;
+                continue;
+            }
+            //if()
+        }*/
+
+        //int count = 0;
+      /*  displayCode = textChildren.GetComponent<Text>();
+
+        if (displayCode.text.Length < 1)
+            displayCode.text += digitEntered;
+        else
+            displayCode.text = digitEntered.ToString();*/
+        
+
 
         //then convert int to char/string ?
-
+       
     }
 
     private void CreateTextObject()
     {
-        displayCode = Instantiate(tempCode, transform.position, Quaternion.identity);
+        displayCode = Instantiate(tempCode, transform.position, Quaternion.identity) as Text;
 
-        displayCode.transform.SetParent(GameObject.Find("Screen").transform, false); //= parent.transform;
+        displayCode.transform.SetParent(GameObject.Find("Screen").transform, false);
 
         displayCode.GetComponentInChildren<Text>();
     }
-
-    /* private void DisplayCodeSequence(int digit)
-     {
-         switch (displayCode.text.Length)
-         {
-
-             *//*case 1:
-                 characters[0].sprite = digits[10];
-                 characters[1].sprite = digits[10];
-                 characters[2].sprite = digits[10];
-                 characters[3].sprite = digits[digit];
-                 break;
-             case 2:
-                 characters[0].sprite = digits[10];
-                 characters[1].sprite = digits[10];
-                 characters[2].sprite = characters[3].sprite;
-                 characters[3].sprite = digits[digit];
-                 break;
-             case 3:
-                 characters[0].sprite = digits[10];
-                 characters[1].sprite = characters[2].sprite;
-                 characters[2].sprite = characters[3].sprite;
-                 characters[3].sprite = digits[digit];
-                 break;
-             case 4:
-                 characters[0].sprite = characters[1].sprite;
-                 characters[1].sprite = characters[2].sprite;
-                 characters[2].sprite = characters[3].sprite;
-                 characters[3].sprite = digits[digit];
-                 break;*//*
-         }
-     }*/
 
     private void CheckResults()
     {
@@ -204,6 +207,6 @@ public class DigitDisplay : MonoBehaviour
 
     private void OnDestroy()
     {
-        PressButton.ButtonPressed -= AddDigitToCode;
+        PressButton.ButtonPressed -= EnterCode;
     }
 }

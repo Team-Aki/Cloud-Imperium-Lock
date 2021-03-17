@@ -93,7 +93,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 3
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -115,4 +115,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempCode: {fileID: 1367032457810212484, guid: 44c6930ada4c3bf41bcd867d577e20d4,
     type: 3}
-  difficulty: 0
+  difficulty: 2
