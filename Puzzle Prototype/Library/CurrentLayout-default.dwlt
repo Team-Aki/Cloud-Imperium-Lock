@@ -55,11 +55,15 @@ MonoBehaviour:
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   controlID: 123
 =======
   controlID: 17
 >>>>>>> Stashed changes
+=======
+  controlID: 88
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
 =======
   controlID: 88
 >>>>>>> parent of d936aa2 (Buttons and slider generate ints)
@@ -92,6 +96,9 @@ MonoBehaviour:
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
+<<<<<<< HEAD
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
+=======
 >>>>>>> parent of d936aa2 (Buttons and slider generate ints)
   m_Panes:
   - {fileID: 15}
@@ -126,6 +133,9 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
+<<<<<<< HEAD
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
+=======
 >>>>>>> parent of d936aa2 (Buttons and slider generate ints)
   m_Panes:
   - {fileID: 16}
@@ -254,11 +264,15 @@ MonoBehaviour:
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   controlID: 59
 =======
   controlID: 18
 >>>>>>> Stashed changes
+=======
+  controlID: 89
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
 =======
   controlID: 89
 >>>>>>> parent of d936aa2 (Buttons and slider generate ints)
@@ -287,11 +301,15 @@ MonoBehaviour:
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   controlID: 60
 =======
   controlID: 19
 >>>>>>> Stashed changes
+=======
+  controlID: 70
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
 =======
   controlID: 70
 >>>>>>> parent of d936aa2 (Buttons and slider generate ints)
@@ -556,9 +574,14 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_SelectedIDs: 98350000
     m_LastClickedID: 13720
+=======
+    m_SelectedIDs: f0330000
+    m_LastClickedID: 13296
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
 =======
     m_SelectedIDs: f0330000
     m_LastClickedID: 13296
@@ -736,6 +759,7 @@ MonoBehaviour:
       m_SelectedIDs: 
       m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_ExpandedIDs: 6afbffff
 =======
       m_SelectedIDs: 76ecffff
@@ -747,11 +771,16 @@ MonoBehaviour:
         m_Name: Canvas
         m_OriginalName: Canvas
 =======
+=======
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
       m_ExpandedIDs: a6b1ffff10bcffffeeeeffff58f7ffffcef7ffff8cf9ffff6afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: Panel
         m_OriginalName: Panel
+<<<<<<< HEAD
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
+=======
 >>>>>>> parent of d936aa2 (Buttons and slider generate ints)
         m_EditFieldRect:
           serializedVersion: 2
@@ -760,7 +789,11 @@ MonoBehaviour:
           width: 0
           height: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
         m_UserData: -1186
+=======
+        m_UserData: -1652
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
 =======
         m_UserData: -1652
 >>>>>>> parent of d936aa2 (Buttons and slider generate ints)
@@ -820,6 +853,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_Target: {x: 1184.882, y: 457.3802, z: -601.0664}
     speed: 2
@@ -829,6 +863,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 1092.1323, y: 516.0358, z: -26.669521}
 >>>>>>> Stashed changes
+=======
+    m_Target: {x: 795.8173, y: 697.8729, z: -537}
+    speed: 2
+    m_Value: {x: 795.8173, y: 697.8729, z: -537}
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
 =======
     m_Target: {x: 795.8173, y: 697.8729, z: -537}
     speed: 2
@@ -884,6 +923,7 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_Target: 577.26184
     speed: 2
@@ -893,6 +933,11 @@ MonoBehaviour:
     speed: 2
     m_Value: 893.98224
 >>>>>>> Stashed changes
+=======
+    m_Target: 1267.8745
+    speed: 2
+    m_Value: 1213.2771
+>>>>>>> parent of d936aa2 (Buttons and slider generate ints)
 =======
     m_Target: 1267.8745
     speed: 2
