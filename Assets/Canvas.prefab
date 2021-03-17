@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 3329599763361656577}
   - component: {fileID: 3329599763361656576}
   m_Layer: 5
-  m_Name: Text (5)
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,7 +378,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 4
 --- !u!114 &3329599763361656576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 3329599763745205196}
   - component: {fileID: 3329599763745205195}
   m_Layer: 5
-  m_Name: Text (6)
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -795,7 +795,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 3
 --- !u!114 &3329599763745205195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,7 +829,7 @@ GameObject:
   - component: {fileID: 3329599763801677708}
   - component: {fileID: 3329599763801677707}
   m_Layer: 5
-  m_Name: Text (7)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -894,7 +894,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 2
 --- !u!114 &3329599763801677707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 3329599763849360319}
   - component: {fileID: 5897742636220112630}
   m_Layer: 5
-  m_Name: 7
+  m_Name: Seven_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1112,18 +1112,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3329599763849360256}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5897742636220112630}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &5897742636220112630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,7 +1217,7 @@ GameObject:
   - component: {fileID: 3329599763957399169}
   - component: {fileID: 5709452877583652939}
   m_Layer: 5
-  m_Name: 3
+  m_Name: Three_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1333,18 +1322,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3329599763957399170}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5709452877583652939}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &5709452877583652939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,7 +1349,7 @@ GameObject:
   - component: {fileID: 3329599763979457050}
   - component: {fileID: 1147992188861954286}
   m_Layer: 5
-  m_Name: 8
+  m_Name: Eight_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1476,18 +1454,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3329599763979457051}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1147992188861954286}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1147992188861954286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1605,8 +1572,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 3329599764073986299}
-  - {fileID: 2413747128800075653}
   - {fileID: 8098061591504950755}
+  - {fileID: 2413747128800075653}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1763,7 +1730,7 @@ GameObject:
   - component: {fileID: 3329599764032986189}
   - component: {fileID: 293844275006476647}
   m_Layer: 5
-  m_Name: 6
+  m_Name: Six_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1868,18 +1835,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3329599764032986190}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 293844275006476647}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &293844275006476647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1905,7 +1861,7 @@ GameObject:
   - component: {fileID: 3329599764047632978}
   - component: {fileID: 3329599764047632977}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1970,7 +1926,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 8
 --- !u!114 &3329599764047632977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2352,7 +2308,7 @@ GameObject:
   - component: {fileID: 3329599764589543446}
   - component: {fileID: 8160278434690383518}
   m_Layer: 5
-  m_Name: 9
+  m_Name: Nine_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2457,18 +2413,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3329599764589543447}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8160278434690383518}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8160278434690383518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2644,7 +2589,7 @@ GameObject:
   - component: {fileID: 3329599764652005304}
   - component: {fileID: 2041647614795785799}
   m_Layer: 5
-  m_Name: 2
+  m_Name: Two_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2749,18 +2694,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3329599764652005305}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2041647614795785799}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2041647614795785799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2786,7 +2720,7 @@ GameObject:
   - component: {fileID: 3329599764773926288}
   - component: {fileID: 3329599764773926287}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2851,7 +2785,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 5
 --- !u!114 &3329599764773926287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2885,7 +2819,7 @@ GameObject:
   - component: {fileID: 3329599764820040836}
   - component: {fileID: 3329599764820040835}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2950,7 +2884,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 9
 --- !u!114 &3329599764820040835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3041,7 +2975,7 @@ GameObject:
   - component: {fileID: 3329599764920456546}
   - component: {fileID: 3329599764920456545}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3106,7 +3040,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 6
 --- !u!114 &3329599764920456545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3141,7 +3075,7 @@ GameObject:
   - component: {fileID: 3329599764936577531}
   - component: {fileID: 4088149590427743792}
   m_Layer: 5
-  m_Name: 1
+  m_Name: One_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3246,18 +3180,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3329599764936577532}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4088149590427743792}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &4088149590427743792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3283,7 +3206,7 @@ GameObject:
   - component: {fileID: 3329599764956496496}
   - component: {fileID: 3329599764956496495}
   m_Layer: 5
-  m_Name: Text (9)
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3348,7 +3271,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 0
 --- !u!114 &3329599764956496495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3383,7 +3306,7 @@ GameObject:
   - component: {fileID: 3329599764958000595}
   - component: {fileID: 8497038677064913428}
   m_Layer: 5
-  m_Name: 0
+  m_Name: Zero_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3488,18 +3411,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3329599764958000596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8497038677064913428}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8497038677064913428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3525,7 +3437,7 @@ GameObject:
   - component: {fileID: 3329599764970820595}
   - component: {fileID: 3329599764970820594}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3590,7 +3502,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 7
 --- !u!114 &3329599764970820594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3624,7 +3536,7 @@ GameObject:
   - component: {fileID: 3329599764971654070}
   - component: {fileID: 3329599764971654069}
   m_Layer: 5
-  m_Name: Text (8)
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3689,7 +3601,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 1
 --- !u!114 &3329599764971654069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3724,7 +3636,7 @@ GameObject:
   - component: {fileID: 3329599764982569122}
   - component: {fileID: 1043760640656060038}
   m_Layer: 5
-  m_Name: 4
+  m_Name: Four_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3829,18 +3741,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3329599764982569123}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1043760640656060038}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1043760640656060038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3867,7 +3768,7 @@ GameObject:
   - component: {fileID: 3329599765039684532}
   - component: {fileID: 7605890194553819437}
   m_Layer: 5
-  m_Name: 5
+  m_Name: Five_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3972,18 +3873,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3329599765039684533}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7605890194553819437}
-        m_MethodName: ButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &7605890194553819437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4244,8 +4134,9 @@ GameObject:
   - component: {fileID: 2413747128800075653}
   - component: {fileID: 3652070539532106894}
   - component: {fileID: 4039672012718469049}
+  - component: {fileID: 1930680387}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4267,7 +4158,7 @@ RectTransform:
   - {fileID: 497682856369655196}
   - {fileID: 465453314827083635}
   m_Father: {fileID: 3329599763988897416}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4311,6 +4202,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1930680387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5313350688287026488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbeebb4c28552c148bfb3b328f00d124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempCode: {fileID: 0}
+  difficulty: 0
 --- !u!1 &5335072232292548226
 GameObject:
   m_ObjectHideFlags: 0
@@ -4514,7 +4419,7 @@ PrefabInstance:
     - target: {fileID: 9046788191148400740, guid: dbfeee2d65f41db428607868fa49fe8a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9046788191148400740, guid: dbfeee2d65f41db428607868fa49fe8a,
         type: 3}

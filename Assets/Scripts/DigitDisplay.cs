@@ -14,16 +14,20 @@ public class DigitDisplay : MonoBehaviour
 
     /*[SerializeField] private Sprite[] digits;
     [SerializeField] private Image[] characters;*/
-    private Text displayCode;
+    //public Transform EntriesRoot;
+    [SerializeField] private Text tempCode;
     [SerializeField] private Difficulty difficulty;
+    private Text displayCode;
+    private int maxDigitCount;
+    private int currentDigitCount = 0;
 
     //private string codeSequence;
 
     private void Start()
     {
-        displayCode = gameObject.GetComponentInChildren<Text>();
+        /*displayCode = gameObject.GetComponentInChildren<Text>();
 
-        displayCode.text = "";
+        displayCode.text = "";*/
 
         //codeSequence = "";
 
@@ -32,33 +36,42 @@ public class DigitDisplay : MonoBehaviour
             characters[i].sprite = digits[10];
         }*/
 
+        if (difficulty == Difficulty.EASY)
+            maxDigitCount = 3;
+        else if (difficulty == Difficulty.NORMAL)
+            maxDigitCount = 4;
+        if (difficulty == Difficulty.HARD)
+            maxDigitCount = 5;
+
         PressButton.ButtonPressed += AddDigitToCode;
     }
 
     private void AddDigitToCode(string digitEntered)
     {
-        switch (difficulty)
+/*        switch (difficulty)
         {
-            case Difficulty.EASY:
-                if (displayCode.text.Length < 4)
+            case Difficulty.EASY:*/
+                if (currentDigitCount < maxDigitCount)
                 {
                     EnterCode(digitEntered);
+                    currentDigitCount++;
                 }
-                break;
+/*                break;
             case Difficulty.NORMAL:
-                if (displayCode.text.Length < 5)
+                if (currentDigitCount >= maxDigitCount)
                 {
                     EnterCode(digitEntered);
+                    currentDigitCount++;
                 }
                 break;
             case Difficulty.HARD:
-                if (displayCode.text.Length < 6)
+                if (currentDigitCount >= maxDigitCount)
                 {
                     EnterCode(digitEntered);
+                    currentDigitCount++;
                 }
                 break;
-        }
-        
+        } */
 
         //Reset/cancel last character
     }
@@ -68,46 +81,78 @@ public class DigitDisplay : MonoBehaviour
         switch (digitEntered)
         {
             case "Zero":
-                displayCode.text += 0;
+                //displayCode.text += 0;
                 //DisplayCodeSequence(0);
+                GenerateTextInstance(0);
                 break;
             case "One":
-                displayCode.text += 1;
+                //displayCode.text += 1;
                 //DisplayCodeSequence(1);
+                GenerateTextInstance(1);
                 break;
             case "Two":
-                displayCode.text += 2;
+                //displayCode.text += 2;
                 //DisplayCodeSequence(2);
+                GenerateTextInstance(2);
                 break;
             case "Three":
-                displayCode.text += 3;
+                //displayCode.text += 3;
                 //DisplayCodeSequence(3);
+                GenerateTextInstance(3);
                 break;
             case "Four":
-                displayCode.text += 4;
+                //displayCode.text += 4;
                 //DisplayCodeSequence(4);
+                GenerateTextInstance(4);
                 break;
             case "Five":
-                displayCode.text += 5;
+                //displayCode.text += 5;
                 //DisplayCodeSequence(5);
+                GenerateTextInstance(5);
                 break;
             case "Six":
-                displayCode.text += 6;
+                //displayCode.text += 6;
                 //DisplayCodeSequence(6);
+                GenerateTextInstance(6);
                 break;
             case "Seven":
-                displayCode.text += 7;
+                //displayCode.text += 7;
                 //DisplayCodeSequence(7);
+                GenerateTextInstance(7);
                 break;
             case "Eight":
-                displayCode.text += 8;
+                //displayCode.text += 8;
                 //DisplayCodeSequence(8);
+                GenerateTextInstance(8);
                 break;
             case "Nine":
-                displayCode.text += 9;
+                //displayCode.text += 9;
                 //DisplayCodeSequence(9);
+                GenerateTextInstance(9);
                 break;
         }
+    }
+
+    private void GenerateTextInstance(int digitEntered)
+    {
+        // var displayCode = Resources.Load("Digit") as Text;
+
+        CreateTextObject();
+        //displayCode.transform.SetParent(CanvasRenderer.transform, false);
+
+        displayCode.text += digitEntered;
+
+        //then convert int to char/string ?
+
+    }
+
+    private void CreateTextObject()
+    {
+        displayCode = Instantiate(tempCode, transform.position, Quaternion.identity);
+
+        displayCode.transform.SetParent(GameObject.Find("Screen").transform, false); //= parent.transform;
+
+        displayCode.GetComponentInChildren<Text>();
     }
 
     /* private void DisplayCodeSequence(int digit)
@@ -144,16 +189,17 @@ public class DigitDisplay : MonoBehaviour
 
     private void CheckResults()
     {
+        //check on update
         //reset display if wrong
         //attempts --
     }
 
     private void ResetDisplay()
     {
-        for (int i = 0; i < displayCode.text.Length; i++)
+        /*for (int i = 0; i < displayCode.text.Length; i++)
         {
             displayCode.text = "";
-        }
+        }*/
     }
 
     private void OnDestroy()
