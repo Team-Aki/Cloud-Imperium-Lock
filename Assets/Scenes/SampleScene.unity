@@ -400,7 +400,7 @@ PrefabInstance:
     - target: {fileID: 843061786117019445, guid: 6bdb7c1d39fd3044db0f1799d724b638,
         type: 3}
       propertyPath: difficulty
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 843061786117019445, guid: 6bdb7c1d39fd3044db0f1799d724b638,
         type: 3}
