@@ -105,45 +105,33 @@ public class DigitDisplay : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (counter == 0 && counter < maxDigitCount)
+            if (counter < maxDigitCount)
             {
-                var textChildren = gameObject.transform.GetChild(0);
-                displayCode = textChildren.GetComponent<Text>();
-                displayCode.text += digitEntered;
-                counter++;
-                break;
-            }
-            else if (counter == 1 && counter < maxDigitCount)
-            {
-                var textChildren = gameObject.transform.GetChild(1);
-                displayCode = textChildren.GetComponent<Text>();
-                displayCode.text += digitEntered;
-                counter++;
-                break;
-            }
-            else if (counter == 2 && counter < maxDigitCount)
-            {
-                var textChildren = gameObject.transform.GetChild(2);
-                displayCode = textChildren.GetComponent<Text>();
-                displayCode.text += digitEntered;
-                counter++;
-                break;
-            }
-            else if (counter == 3 && counter < maxDigitCount)
-            {
-                var textChildren = gameObject.transform.GetChild(3);
-                displayCode = textChildren.GetComponent<Text>();
-                displayCode.text += digitEntered;
-                counter++;
-                break;
-            }
-            else if (counter == 4 && counter < maxDigitCount)
-            {
-                var textChildren = gameObject.transform.GetChild(4);
-                displayCode = textChildren.GetComponent<Text>();
-                displayCode.text += digitEntered;
-                counter++;
-                break;
+                if (counter == 0)
+                {
+                    AddCharacter(digitEntered);
+                    break;
+                }
+                else if (counter == 1)
+                {
+                    AddCharacter(digitEntered);
+                    break;
+                }
+                else if (counter == 2)
+                {
+                    AddCharacter(digitEntered);
+                    break;
+                }
+                else if (counter == 3)
+                {
+                    AddCharacter(digitEntered);
+                    break;
+                }
+                else if (counter == 4)
+                {
+                    AddCharacter(digitEntered);
+                    break;
+                }
             }
         }
         
@@ -179,6 +167,14 @@ public class DigitDisplay : MonoBehaviour
 
         //then convert int to char/string ?
        
+    }
+
+    private void AddCharacter(int digitEntered)
+    {
+        var textChildren = gameObject.transform.GetChild(counter);
+        displayCode = textChildren.GetComponent<Text>();
+        displayCode.text += digitEntered;
+        counter++;
     }
 
     private void CreateTextObject()
