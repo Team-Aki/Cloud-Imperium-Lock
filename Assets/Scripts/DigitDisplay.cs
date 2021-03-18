@@ -19,7 +19,8 @@ public class DigitDisplay : MonoBehaviour
     private int maxDigitCount;
     private Text displayCode;
     int counter = 0;
-    private string codeSolution = "";
+    public string codeSolution { get; set; }
+
     private string codeSolutionEntered = "";
     private string solutionChars = "0123456789";
 
@@ -31,7 +32,8 @@ public class DigitDisplay : MonoBehaviour
 
     //private int currentDigitCount = 0;
 
-    private void Start()
+
+    private void Awake()
     {
         if (difficulty == Difficulty.EASY)
             maxDigitCount = 3;
@@ -40,9 +42,7 @@ public class DigitDisplay : MonoBehaviour
         if (difficulty == Difficulty.HARD)
             maxDigitCount = 5;
 
-        //index = maxDigitCount;
-
-        //displayCode = new Text[maxDigitCount];
+        codeSolution = "";
 
         for (int i = 0; i < maxDigitCount; i++)
         {
@@ -53,7 +53,13 @@ public class DigitDisplay : MonoBehaviour
             DebugSolution(codeSolution);
 
         }
+    }
 
+    private void Start()
+    {
+        //index = maxDigitCount;
+
+        //displayCode = new Text[maxDigitCount];
 
         PressButton.ButtonPressed += EnterCode;
     }
