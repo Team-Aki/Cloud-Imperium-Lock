@@ -1,8 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
-using System.Linq;
-using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,13 +13,17 @@ public class DigitDisplay : MonoBehaviour
         HARD
     }
 
-    [SerializeField] private Text tempCode;
     [SerializeField] private Difficulty difficulty;
-    private int maxDigitCount;
-    //private int index;
 
+    [SerializeField] private Text tempCode;
+    private int maxDigitCount;
     private Text displayCode;
     int counter = 0;
+    private string codeSolution = "";
+    private string codeSolutionEntered = "";
+    private string solutionChars = "0123456789";
+
+
 
     //List<Text> displayCode = new List<Text>();
     /*    List<int> prev = new List<int>();
@@ -44,8 +46,14 @@ public class DigitDisplay : MonoBehaviour
 
         for (int i = 0; i < maxDigitCount; i++)
         {
-            CreateTextObject(); //i
+            codeSolution += solutionChars[UnityEngine.Random.Range(0, solutionChars.Length)];
+
+            CreateTextObject();
+
+            CreateCodeSolution(codeSolution);
+
         }
+
 
         PressButton.ButtonPressed += EnterCode;
     }
@@ -68,37 +76,58 @@ public class DigitDisplay : MonoBehaviour
         {
             case "Zero":
                 GenerateText(0);
+                AddCharacterToSolutionCheck(0);
                 break;
             case "One":
                 GenerateText(1);
+                AddCharacterToSolutionCheck(1);
                 break;
             case "Two":
                 GenerateText(2);
+                AddCharacterToSolutionCheck(2);
                 break;
             case "Three":
                 GenerateText(3);
+                AddCharacterToSolutionCheck(3);
                 break;
             case "Four":
                 GenerateText(4);
+                AddCharacterToSolutionCheck(4);
                 break;
             case "Five":
                 GenerateText(5);
+                AddCharacterToSolutionCheck(5);
                 break;
             case "Six":
                 GenerateText(6);
+                AddCharacterToSolutionCheck(6);
                 break;
             case "Seven":
                 GenerateText(7);
+                AddCharacterToSolutionCheck(7);
                 break;
             case "Eight":
                 GenerateText(8);
+                AddCharacterToSolutionCheck(8);
                 break;
             case "Nine":
                 GenerateText(9);
+                AddCharacterToSolutionCheck(9);
                 break;
         }
 
         
+    }
+
+    private void AddCharacterToSolutionCheck(int digitEntered)
+    {
+        if (codeSolutionEntered.Length < maxDigitCount)
+            codeSolutionEntered += digitEntered;
+
+        if(codeSolution.Length == codeSolutionEntered.Length)
+            CheckResults();
+        
+
     }
 
     private void GenerateText(int digitEntered)
@@ -134,39 +163,19 @@ public class DigitDisplay : MonoBehaviour
                 }
             }
         }
-        
-
-        
-        //int counter = 1;
-
-        /*for (int i = 0; i < displayCode.Count; i++)
-        {
-            Debug.Log("dfdsaaaaa");
-        }*/
-
-        /*foreach (Text item in displayCode)
-        {
-
-            if (item.text.Length < 1)
-            {
-                item.text += digitEntered;
-                continue;
-            }
-            //if()
-        }*/
-
-        //int count = 0;
-      /*  displayCode = textChildren.GetComponent<Text>();
-
-        if (displayCode.text.Length < 1)
-            displayCode.text += digitEntered;
-        else
-            displayCode.text = digitEntered.ToString();*/
-        
-
 
         //then convert int to char/string ?
        
+    }
+
+    private void CreateCodeSolution(string codeSolution)
+    {
+        Debug.Log("Solution " + codeSolution);
+
+/*        for (int i = 0; i < transform.childCount; i++)
+        {
+            if()
+        }*/
     }
 
     private void AddCharacter(int digitEntered)
@@ -188,7 +197,11 @@ public class DigitDisplay : MonoBehaviour
 
     private void CheckResults()
     {
-        //check on update
+        if (codeSolution.Contains(codeSolutionEntered))
+            Debug.Log("Success");
+        else
+            Debug.Log("Fail");
+
         //reset display if wrong
         //attempts --
     }
