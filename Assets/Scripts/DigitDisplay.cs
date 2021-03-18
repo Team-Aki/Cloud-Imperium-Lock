@@ -46,16 +46,25 @@ public class DigitDisplay : MonoBehaviour
 
         for (int i = 0; i < maxDigitCount; i++)
         {
-            codeSolution += solutionChars[UnityEngine.Random.Range(0, solutionChars.Length)];
+            CreateCodeSolution();
 
             CreateTextObject();
 
-            CreateCodeSolution(codeSolution);
+            DebugSolution(codeSolution);
 
         }
 
 
         PressButton.ButtonPressed += EnterCode;
+    }
+
+    private void Update()
+    {
+    }
+
+    private void CreateCodeSolution()
+    {
+        codeSolution += solutionChars[UnityEngine.Random.Range(0, solutionChars.Length)];        
     }
 
     /*    private void AddDigitToCode(string digitEntered)
@@ -126,8 +135,6 @@ public class DigitDisplay : MonoBehaviour
 
         if(codeSolution.Length == codeSolutionEntered.Length)
             CheckResults();
-        
-
     }
 
     private void GenerateText(int digitEntered)
@@ -168,7 +175,7 @@ public class DigitDisplay : MonoBehaviour
        
     }
 
-    private void CreateCodeSolution(string codeSolution)
+    private void DebugSolution(string codeSolution)
     {
         Debug.Log("Solution " + codeSolution);
 
@@ -198,20 +205,34 @@ public class DigitDisplay : MonoBehaviour
     private void CheckResults()
     {
         if (codeSolution.Contains(codeSolutionEntered))
+        {
             Debug.Log("Success");
+            //Open Door
+        }
         else
+        {
             Debug.Log("Fail");
-
-        //reset display if wrong
-        //attempts --
+            ResetDisplay();
+            DebugSolution(codeSolution);
+            //Reset
+            //Attempts==
+            //Maybe Create new Solution
+        }
     }
 
     private void ResetDisplay()
     {
-        /*for (int i = 0; i < displayCode.text.Length; i++)
+        for (int i = 0; i < maxDigitCount; i++)
         {
-            displayCode.text = "";
-        }*/
+            codeSolutionEntered = "";
+            for (int j = 0; j < transform.childCount; j++)
+            {
+                var textChildren = gameObject.transform.GetChild(j);
+                displayCode = textChildren.GetComponent<Text>();
+                displayCode.text = "";
+            }
+            counter = 0;
+        }
     }
 
     private void OnDestroy()
