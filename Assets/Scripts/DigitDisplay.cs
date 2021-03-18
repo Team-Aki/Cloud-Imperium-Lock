@@ -13,12 +13,15 @@ public class DigitDisplay : MonoBehaviour
         HARD
     }
 
-    [SerializeField] private Difficulty difficulty;
+    [SerializeField] public Difficulty difficulty;
 
     [SerializeField] private Text tempCode;
-    private int maxDigitCount;
-    private Text displayCode;
-    int counter = 0;
+    public int maxDigitCount { get; set; }
+
+    public Text displayCode { get; set; }
+
+    int counter;
+
     public string codeSolution { get; set; }
 
     private string codeSolutionEntered = "";
@@ -42,6 +45,7 @@ public class DigitDisplay : MonoBehaviour
         if (difficulty == Difficulty.HARD)
             maxDigitCount = 5;
 
+        counter = 0;
         codeSolution = "";
 
         for (int i = 0; i < maxDigitCount; i++)
@@ -143,7 +147,7 @@ public class DigitDisplay : MonoBehaviour
             CheckResults();
     }
 
-    private void GenerateText(int digitEntered)
+    private void GenerateText(int digitEntered) //counter to limit instances
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -176,26 +180,21 @@ public class DigitDisplay : MonoBehaviour
                 }
             }
         }
-
-        //then convert int to char/string ?
        
     }
 
     private void DebugSolution(string codeSolution)
     {
         Debug.Log("Solution " + codeSolution);
-
-/*        for (int i = 0; i < transform.childCount; i++)
-        {
-            if()
-        }*/
     }
 
-    private void AddCharacter(int digitEntered)
+    private void AddCharacter(int digitEntered) //create child object with text of one character
     {
         var textChildren = gameObject.transform.GetChild(counter);
         displayCode = textChildren.GetComponent<Text>();
-        displayCode.text += digitEntered;
+
+        if(displayCode.text.Length < 1)
+            displayCode.text += digitEntered;
         counter++;
     }
 

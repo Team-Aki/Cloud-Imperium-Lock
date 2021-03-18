@@ -2575,6 +2575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5825aaa8e886654895af5cb1e7e8fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: {fileID: 0}
+  compareCodeSolution: 00000
 --- !u!1 &3329599764652005302
 GameObject:
   m_ObjectHideFlags: 0
@@ -4214,8 +4216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbeebb4c28552c148bfb3b328f00d124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempCode: {fileID: 0}
   difficulty: 0
+  tempCode: {fileID: 0}
 --- !u!1 &5335072232292548226
 GameObject:
   m_ObjectHideFlags: 0
