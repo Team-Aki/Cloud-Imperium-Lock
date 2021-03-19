@@ -50,31 +50,24 @@ public class SlidePos : MonoBehaviour
     private void ShowSolutionTextE()
     {
         //var matches = Regex.Matches(tempCodeSolution, @"(.)\1+");
-
-/*        for (int i = 0; i < tempCodeSolution.Length; i++)
+        if (slider.value.ToString().Contains(tempCodeSolution[0].ToString()))
         {
-            if (tempCodeSolution.Length != tempCodeSolution.Length - 1)
-            {*/
-   
-                if (slider.value.ToString().Contains(tempCodeSolution[0].ToString()))
-                {
-                    CheckFirstCharacter();
-                    //GetDigitChild(0);
-                }
-                else if (slider.value.ToString().Contains(tempCodeSolution[1].ToString()))
-                {
-                    CheckSecondCharacter();
-                }
-                else if (slider.value.ToString().Contains(tempCodeSolution[2].ToString()))
-                {
-                    var textChildrenNext = code.gameObject.transform.GetChild(2);
-                    code.displayCode = textChildrenNext.GetComponent<Text>();
-                    Text tempDisplayCodeNext = code.displayCode;
-                    tempDisplayCodeNext.text = tempCodeSolution[2].ToString();
-                }
-                else
-                    code.displayCode.text = "";
-
+            CheckFirstCharacter();
+            //GetDigitChild(0);
+        }
+        else if (slider.value.ToString().Contains(tempCodeSolution[1].ToString()))
+        {
+            CheckSecondCharacter();
+        }
+        else if (slider.value.ToString().Contains(tempCodeSolution[2].ToString()))
+        {
+            var textChildrenNext = code.gameObject.transform.GetChild(2);
+            code.displayCode = textChildrenNext.GetComponent<Text>();
+            Text tempDisplayCodeNext = code.displayCode;
+            tempDisplayCodeNext.text = tempCodeSolution[2].ToString();
+        }
+        else
+            code.displayCode.text = "";
     }
 
     private void ShowSolutionTextH()
@@ -194,13 +187,15 @@ public class SlidePos : MonoBehaviour
             Text tempDisplayCodeNext = code.displayCode;
             tempDisplayCodeNext.text = tempCodeSolution[2].ToString();
         }
-        else
+        else if (tempCodeSolution[0] != tempCodeSolution[1] && tempCodeSolution[0] != tempCodeSolution[2])
         {
             var textChildren0 = code.gameObject.transform.GetChild(0);
             code.displayCode = textChildren0.GetComponent<Text>();
             Text tempDisplayCode = code.displayCode;
             tempDisplayCode.text = tempCodeSolution[0].ToString();
         }
+        else
+            code.displayCode.text = "";
         /*else if (tempCodeSolution[i] == tempCodeSolution[i + 2])
         {
             var textChildren0 = code.gameObject.transform.GetChild(0);
@@ -228,13 +223,16 @@ public class SlidePos : MonoBehaviour
             Text tempDisplayCodeNext = code.displayCode;
             tempDisplayCodeNext.text = tempCodeSolution[2].ToString();
         }
-        else
+        else if (tempCodeSolution[1] != tempCodeSolution[2])
         {
             var textChildren1 = code.gameObject.transform.GetChild(1);
             code.displayCode = textChildren1.GetComponent<Text>();
             Text tempDisplayCode = code.displayCode;
             tempDisplayCode.text = tempCodeSolution[1].ToString();
         }
+        else
+            code.displayCode.text = "";
+
     }
 
     private void GetDigitChild(int i)

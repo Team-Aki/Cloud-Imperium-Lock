@@ -143,7 +143,6 @@ public class DigitDisplayNumpad : MonoBehaviour
 
     private void AddCharacter(int digitEntered) //create child object with text of one character
     {
-        Debug.Log("OnAddchar");
         var textChildren = gameObject.transform.GetChild(counter);
         displayCode = textChildren.GetComponent<Text>();
 
