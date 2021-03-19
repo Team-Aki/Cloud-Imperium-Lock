@@ -1,70 +1,54 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DigitDisplay : MonoBehaviour
+public class DigitDisplayNumpad : MonoBehaviour
 {
-    public enum Difficulty
-    {
-        EASY,
-        NORMAL,
-        HARD
-    }
-
-    [SerializeField] public Difficulty difficulty;
-
     [SerializeField] private Text tempCode;
-    public int maxDigitCount { get; set; }
 
-    public Text displayCode { get; set; }
+    private int maxDigits;
+
+    private Text displayCode;
 
     int counter;
-    public bool success { get; set; }
 
-    public string codeSolution { get; set; }
+    private string codeSolution;
 
-    public string codeSolutionEntered { get; set; }
+    private string codeSolutionEntered;
 
-    private string solutionChars = "0123456789";
+    private DigitDisplay code;
 
     private void Awake()
     {
-        if (difficulty == Difficulty.EASY)
-            maxDigitCount = 3;
-        else if (difficulty == Difficulty.NORMAL)
-            maxDigitCount = 4;
-        if (difficulty == Difficulty.HARD)
-            maxDigitCount = 5;
-
-        counter = 0;
-        codeSolution = "";
-        codeSolutionEntered = "";
-
-        for (int i = 0; i < maxDigitCount; i++)
-        {
-            CreateCodeSolution();
-
-            CreateTextObject();
-
-            DebugSolution(codeSolution);
-
-        }
+        code = GameObject.Find("Screen").GetComponent<DigitDisplay>();
     }
 
     private void Start()
     {
+
+        maxDigits = code.maxDigitCount;
+
+        counter = 0;
+        codeSolution = code.codeSolution;
+        codeSolutionEntered = code.codeSolutionEntered;
+
+        for (int i = 0; i < maxDigits; i++)
+        {
+            CreateTextObject();
+        }
+
         PressButton.ButtonPressed += EnterCode;
     }
 
-    private void CreateCodeSolution()
+    private void Update()
     {
-        codeSolution += solutionChars[UnityEngine.Random.Range(0, solutionChars.Length)];        
+       
     }
 
     private void EnterCode(string digitEntered)
     {
+
         switch (digitEntered)
         {
             case "Zero":
@@ -109,20 +93,14 @@ public class DigitDisplay : MonoBehaviour
                 break;
         }
 
-        
+
     }
 
     private void AddCharacterToSolutionCheck(int digitEntered)
     {
-        if (codeSolutionEntered.Length < maxDigitCount)
+        if (codeSolutionEntered.Length < maxDigits)
             codeSolutionEntered += digitEntered;
 
-        if(codeSolution.Length == codeSolutionEntered.Length)
-            CheckResults();
-    }
-
-    public void CheckSolutionForReset()
-    {
         if (codeSolution.Length == codeSolutionEntered.Length)
             CheckResults();
     }
@@ -131,7 +109,7 @@ public class DigitDisplay : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (counter < maxDigitCount)
+            if (counter < maxDigits)
             {
                 if (counter == 0)
                 {
@@ -160,21 +138,18 @@ public class DigitDisplay : MonoBehaviour
                 }
             }
         }
-       
-    }
 
-    private void DebugSolution(string codeSolution)
-    {
-        Debug.Log("Solution " + codeSolution);
     }
 
     private void AddCharacter(int digitEntered) //create child object with text of one character
     {
+        Debug.Log("OnAddchar");
         var textChildren = gameObject.transform.GetChild(counter);
         displayCode = textChildren.GetComponent<Text>();
 
-        if(displayCode.text.Length < 1)
+        if (displayCode.text.Length < 1)
             displayCode.text += digitEntered;
+
         counter++;
     }
 
@@ -182,7 +157,7 @@ public class DigitDisplay : MonoBehaviour
     {
         displayCode = Instantiate(tempCode, transform.position, Quaternion.identity) as Text;
 
-        displayCode.transform.SetParent(GameObject.Find("Screen").transform, false);
+        displayCode.transform.SetParent(GameObject.Find("DigitScreen").transform, false);
 
         displayCode.GetComponentInChildren<Text>();
     }
@@ -191,15 +166,13 @@ public class DigitDisplay : MonoBehaviour
     {
         if (codeSolution.Contains(codeSolutionEntered))
         {
-            success = true;
+            Debug.Log("Success");
             //Open Door
         }
         else
         {
             Debug.Log("Fail");
-            success = false;
             ResetDisplay();
-            DebugSolution(codeSolution);
             //Reset
             //Attempts==
             //Maybe Create new Solution
@@ -208,7 +181,7 @@ public class DigitDisplay : MonoBehaviour
 
     private void ResetDisplay()
     {
-        for (int i = 0; i < maxDigitCount; i++)
+        for (int i = 0; i < maxDigits; i++)
         {
             codeSolutionEntered = "";
             for (int j = 0; j < transform.childCount; j++)
