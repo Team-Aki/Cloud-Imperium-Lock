@@ -13,8 +13,6 @@ public class SlidePos : MonoBehaviour
 
     private string tempCodeSolution;
 
-    private string solutionChars = "0123456789";
-
     // Start is called before the first frame update
     void Start()
     {
@@ -61,10 +59,7 @@ public class SlidePos : MonoBehaviour
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[2].ToString()))
         {
-            var textChildrenNext = code.gameObject.transform.GetChild(2);
-            code.displayCode = textChildrenNext.GetComponent<Text>();
-            Text tempDisplayCodeNext = code.displayCode;
-            tempDisplayCodeNext.text = tempCodeSolution[2].ToString();
+            GetDigitChild(2); //slider.value.ToString()
         }
         else
             code.displayCode.text = "";
@@ -127,7 +122,25 @@ public class SlidePos : MonoBehaviour
 
     private void ShowSolutionTextN()
     {
-        if (slider.value.ToString() == tempCodeSolution[0].ToString())
+        //var matches = Regex.Matches(tempCodeSolution, @"(.)\1+");
+        if (slider.value.ToString().Contains(tempCodeSolution[0].ToString()))
+        {
+            CheckFirstCharacter();
+            //GetDigitChild(0);
+        }
+        else if (slider.value.ToString().Contains(tempCodeSolution[1].ToString()))
+        {
+            CheckSecondCharacter();
+        }
+        else if (slider.value.ToString().Contains(tempCodeSolution[2].ToString()))
+        {
+            GetDigitChild(2); //slider.value.ToString()
+        }
+        else
+            code.displayCode.text = "";
+
+
+        /*if (slider.value.ToString() == tempCodeSolution[0].ToString())
         {
             var textChildren0 = code.gameObject.transform.GetChild(0);
             code.displayCode = textChildren0.GetComponent<Text>();
@@ -153,7 +166,7 @@ public class SlidePos : MonoBehaviour
             code.displayCode.text = tempCodeSolution[3].ToString();
         }
         else
-            code.displayCode.text = "";
+            code.displayCode.text = "";*/
     }
 
 
@@ -161,38 +174,27 @@ public class SlidePos : MonoBehaviour
     {
         if (tempCodeSolution[0] == tempCodeSolution[1])
         {
-            var textChildren0 = code.gameObject.transform.GetChild(0);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            Text tempDisplayCode = code.displayCode;
-            tempDisplayCode.text = tempCodeSolution[0].ToString();
+            GetDigitChild(0);
 
             /*var textChildren0 = code.gameObject.transform.GetChild(0);
             code.displayCode = textChildren0.GetComponent<Text>();
             code.displayCode.text = tempCodeSolution[0].ToString();*/
 
-            var textChildrenNext = code.gameObject.transform.GetChild(1);
-            code.displayCode = textChildrenNext.GetComponent<Text>();
-            Text tempDisplayCodeNext = code.displayCode;
-            tempDisplayCodeNext.text = tempCodeSolution[1].ToString();
+            GetDigitChild(1);
         }
-        else if (tempCodeSolution[0] == tempCodeSolution[2])
+        else if (tempCodeSolution[0] == tempCodeSolution[2]) //|| (tempCodeSolution[0] == tempCodeSolution[3])
         {
-            var textChildren0 = code.gameObject.transform.GetChild(0);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            Text tempDisplayCode = code.displayCode;
-            tempDisplayCode.text = tempCodeSolution[0].ToString();
+            GetDigitChild(0);
 
-            var textChildrenNext = code.gameObject.transform.GetChild(2);
-            code.displayCode = textChildrenNext.GetComponent<Text>();
-            Text tempDisplayCodeNext = code.displayCode;
-            tempDisplayCodeNext.text = tempCodeSolution[2].ToString();
+            GetDigitChild(2);
+
+            /*if (GetDigitChild(3) != null)
+                GetDigitChild(3);*/
+
         }
         else if (tempCodeSolution[0] != tempCodeSolution[1] && tempCodeSolution[0] != tempCodeSolution[2])
         {
-            var textChildren0 = code.gameObject.transform.GetChild(0);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            Text tempDisplayCode = code.displayCode;
-            tempDisplayCode.text = tempCodeSolution[0].ToString();
+            GetDigitChild(0);
         }
         else
             code.displayCode.text = "";
@@ -213,32 +215,35 @@ public class SlidePos : MonoBehaviour
     {
         if (tempCodeSolution[1] == tempCodeSolution[2])
         {
-            var textChildren0 = code.gameObject.transform.GetChild(1);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            Text tempDisplayCode = code.displayCode;
-            tempDisplayCode.text = tempCodeSolution[1].ToString();
-
-            var textChildrenNext = code.gameObject.transform.GetChild(2);
-            code.displayCode = textChildrenNext.GetComponent<Text>();
-            Text tempDisplayCodeNext = code.displayCode;
-            tempDisplayCodeNext.text = tempCodeSolution[2].ToString();
+            GetDigitChild(1);
+            GetDigitChild(2);
         }
         else if (tempCodeSolution[1] != tempCodeSolution[2])
         {
-            var textChildren1 = code.gameObject.transform.GetChild(1);
-            code.displayCode = textChildren1.GetComponent<Text>();
-            Text tempDisplayCode = code.displayCode;
-            tempDisplayCode.text = tempCodeSolution[1].ToString();
+            GetDigitChild(1);
         }
         else
             code.displayCode.text = "";
 
     }
 
-    private void GetDigitChild(int i)
+    private Text GetDigitChild(int i)
     {
-        var textChildren0 = code.gameObject.transform.GetChild(i);
-        code.displayCode = textChildren0.GetComponent<Text>();
-        code.displayCode.text = tempCodeSolution[0].ToString();
+        var textChildrenNext = code.gameObject.transform.GetChild(i);
+        code.displayCode = textChildrenNext.GetComponent<Text>();
+        Text tempDisplayCodeNext = code.displayCode;
+        tempDisplayCodeNext.text = tempCodeSolution[i].ToString();
+
+        StartCoroutine(CancelDigit(tempDisplayCodeNext));
+
+        return tempDisplayCodeNext;
+
+    }
+
+    private IEnumerator CancelDigit(Text fadeText)
+    {
+        yield return new WaitForSeconds(3.0f);
+        fadeText.text = "";
+
     }
 }
