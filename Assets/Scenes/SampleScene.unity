@@ -1052,7 +1052,7 @@ PrefabInstance:
     - target: {fileID: 7388511098313893810, guid: 6bdb7c1d39fd3044db0f1799d724b638,
         type: 3}
       propertyPath: difficulty
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bdb7c1d39fd3044db0f1799d724b638, type: 3}
