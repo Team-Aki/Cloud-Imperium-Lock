@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
@@ -27,7 +28,7 @@ public class SlidePos : MonoBehaviour
 
     private void Update()
     {
-        if(code.success)
+        if (code.success)
         {
             slider.enabled = false;
         }
@@ -38,28 +39,30 @@ public class SlidePos : MonoBehaviour
     {
         if (tempCodeSolution.Length == 4)
             ShowSolutionTextN();
-        else if(tempCodeSolution.Length == 5)
+        else if (tempCodeSolution.Length == 5)
             ShowSolutionTextH();
-        else if(tempCodeSolution.Length == 3)
+        else if (tempCodeSolution.Length == 3)
             ShowSolutionTextE();
-        
     }
+
+/* GOTTA HARDCODE IT
+ * I FEEL DISGUSTING
+ 
+         */
 
     private void ShowSolutionTextE()
     {
-        //var matches = Regex.Matches(tempCodeSolution, @"(.)\1+");
         if (slider.value.ToString().Contains(tempCodeSolution[0].ToString()))
         {
-            CheckFirstCharacter();
-            //GetDigitChild(0);
+            CheckFirstCharacterE();
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[1].ToString()))
         {
-            CheckSecondCharacter();
+            CheckSecondCharacterE();
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[2].ToString()))
         {
-            GetDigitChild(2); //slider.value.ToString()
+            GetDigitChild(2);
         }
         else
             code.displayCode.text = "";
@@ -67,129 +70,64 @@ public class SlidePos : MonoBehaviour
 
     private void ShowSolutionTextH()
     {
-        /*if (slider.value.ToString() == tempCodeSolution[0].ToString())
-        {
-            var textChildren0 = code.gameObject.transform.GetChild(0);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[0].ToString();
-        }
-        else if (slider.value.ToString() == tempCodeSolution[1].ToString())
-        {
-            var textChildren0 = code.gameObject.transform.GetChild(1);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[1].ToString();
-        }
-        else if (slider.value.ToString() == tempCodeSolution[2].ToString())
-        {
-            var textChildren0 = code.gameObject.transform.GetChild(2);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[2].ToString();
-        }*/
-
         if (slider.value.ToString().Contains(tempCodeSolution[0].ToString()))
         {
-            var textChildren0 = code.gameObject.transform.GetChild(0);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[0].ToString();
+            CheckFirstCharacterH();
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[1].ToString()))
         {
-            var textChildren0 = code.gameObject.transform.GetChild(1);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[1].ToString();
+            CheckSecondCharacterH();
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[2].ToString()))
         {
-            var textChildren0 = code.gameObject.transform.GetChild(2);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[2].ToString();
+            CheckThirdCharacterH();
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[3].ToString()))
         {
-            var textChildren0 = code.gameObject.transform.GetChild(3);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[3].ToString();
+            CheckFourthCharacterH();
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[4].ToString()))
-        {
-            var textChildren0 = code.gameObject.transform.GetChild(4);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[4].ToString();
-        }
+            GetDigitChild(4);
         else
             code.displayCode.text = "";
     }
 
     private void ShowSolutionTextN()
     {
-        //var matches = Regex.Matches(tempCodeSolution, @"(.)\1+");
         if (slider.value.ToString().Contains(tempCodeSolution[0].ToString()))
         {
-            CheckFirstCharacter();
-            //GetDigitChild(0);
+            CheckFirstCharacterN();
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[1].ToString()))
         {
-            CheckSecondCharacter();
+            CheckSecondCharacterN();
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[2].ToString()))
         {
-            GetDigitChild(2); //slider.value.ToString()
+            CheckThirdCharacterN();
         }
+        else if (slider.value.ToString().Contains(tempCodeSolution[3].ToString()))
+            GetDigitChild(3);
         else
             code.displayCode.text = "";
-
-
-        /*if (slider.value.ToString() == tempCodeSolution[0].ToString())
-        {
-            var textChildren0 = code.gameObject.transform.GetChild(0);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[0].ToString();
-        }
-        else if (slider.value.ToString() == tempCodeSolution[1].ToString())
-        {
-            var textChildren0 = code.gameObject.transform.GetChild(1);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[1].ToString();
-
-        }
-        else if (slider.value.ToString() == tempCodeSolution[2].ToString())
-        {
-            var textChildren0 = code.gameObject.transform.GetChild(2);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[2].ToString();
-        }
-        else if (slider.value.ToString() == tempCodeSolution[3].ToString())
-        {
-            var textChildren0 = code.gameObject.transform.GetChild(3);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[3].ToString();
-        }
-        else
-            code.displayCode.text = "";*/
     }
-
-
-    private void CheckFirstCharacter()
+    private void CheckFirstCharacterE()
     {
-        if (tempCodeSolution[0] == tempCodeSolution[1])
+        if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[2])
         {
             GetDigitChild(0);
-
-            /*var textChildren0 = code.gameObject.transform.GetChild(0);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[0].ToString();*/
-
+            GetDigitChild(1);
+            GetDigitChild(2);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[1])
+        {
+            GetDigitChild(0);
             GetDigitChild(1);
         }
-        else if (tempCodeSolution[0] == tempCodeSolution[2]) //|| (tempCodeSolution[0] == tempCodeSolution[3])
+        else if (tempCodeSolution[0] == tempCodeSolution[2])
         {
             GetDigitChild(0);
-
             GetDigitChild(2);
-
-            /*if (GetDigitChild(3) != null)
-                GetDigitChild(3);*/
 
         }
         else if (tempCodeSolution[0] != tempCodeSolution[1] && tempCodeSolution[0] != tempCodeSolution[2])
@@ -198,20 +136,9 @@ public class SlidePos : MonoBehaviour
         }
         else
             code.displayCode.text = "";
-        /*else if (tempCodeSolution[i] == tempCodeSolution[i + 2])
-        {
-            var textChildren0 = code.gameObject.transform.GetChild(0);
-            code.displayCode = textChildren0.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[0].ToString();
-
-            var textChildrenNext = code.gameObject.transform.GetChild(2);
-            code.displayCode = textChildrenNext.GetComponent<Text>();
-            code.displayCode.text = tempCodeSolution[2].ToString();
-        }*/
-
     }
 
-    private void CheckSecondCharacter()
+    private void CheckSecondCharacterE()
     {
         if (tempCodeSolution[1] == tempCodeSolution[2])
         {
@@ -219,31 +146,321 @@ public class SlidePos : MonoBehaviour
             GetDigitChild(2);
         }
         else if (tempCodeSolution[1] != tempCodeSolution[2])
-        {
             GetDigitChild(1);
-        }
         else
             code.displayCode.text = "";
+    }
 
+    private void CheckFirstCharacterN()
+    {
+        if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[2] && tempCodeSolution[0] == tempCodeSolution[3])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+            GetDigitChild(2);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[2])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+            GetDigitChild(2);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[2] && tempCodeSolution[0] == tempCodeSolution[3])
+        {
+            GetDigitChild(0);
+            GetDigitChild(2);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[3])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[1])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[2])
+        {
+            GetDigitChild(0);
+            GetDigitChild(2);
+
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[3])
+        {
+            GetDigitChild(0);
+            GetDigitChild(3);
+
+        }
+        else if (tempCodeSolution[0] != tempCodeSolution[1] && tempCodeSolution[0] != tempCodeSolution[2] && tempCodeSolution[0] != tempCodeSolution[3])
+            GetDigitChild(0);
+        else
+            code.displayCode.text = "";
+    }
+
+    private void CheckSecondCharacterN()
+    {
+        if (tempCodeSolution[1] == tempCodeSolution[2] && tempCodeSolution[1] == tempCodeSolution[3])
+        {
+            GetDigitChild(1);
+            GetDigitChild(2);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[1] == tempCodeSolution[2])
+        {
+            GetDigitChild(1);
+            GetDigitChild(2);
+        }
+        else if (tempCodeSolution[1] == tempCodeSolution[3])
+        {
+            GetDigitChild(1);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[1] != tempCodeSolution[2] && tempCodeSolution[1] != tempCodeSolution[3])
+            GetDigitChild(1);
+        else
+            code.displayCode.text = "";
+    }
+
+    private void CheckThirdCharacterN()
+    {
+        if (tempCodeSolution[2] == tempCodeSolution[3])
+        {
+            GetDigitChild(2);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[2] != tempCodeSolution[3])
+            GetDigitChild(2);
+        else
+            code.displayCode.text = "";
+    }
+
+    private void CheckFirstCharacterH()
+    {
+        if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[2] && tempCodeSolution[0] == tempCodeSolution[3] && tempCodeSolution[0] == tempCodeSolution[4])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+            GetDigitChild(2);
+            GetDigitChild(3);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[2] && tempCodeSolution[0] == tempCodeSolution[3])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+            GetDigitChild(2);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[2] && tempCodeSolution[0] == tempCodeSolution[4])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+            GetDigitChild(2);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[3] && tempCodeSolution[0] == tempCodeSolution[4])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+            GetDigitChild(3);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[2] && tempCodeSolution[0] == tempCodeSolution[3] && tempCodeSolution[0] == tempCodeSolution[4])
+        {
+            GetDigitChild(0);
+            GetDigitChild(2);
+            GetDigitChild(3);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[4])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[3])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[2])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+            GetDigitChild(2);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[2] && tempCodeSolution[0] == tempCodeSolution[4])
+        {
+            GetDigitChild(0);
+            GetDigitChild(2);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[2] && tempCodeSolution[0] == tempCodeSolution[3])
+        {
+            GetDigitChild(0);
+            GetDigitChild(2);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[3] && tempCodeSolution[0] == tempCodeSolution[4])
+        {
+            GetDigitChild(0);
+            GetDigitChild(3);
+            GetDigitChild(4);
+        }
+
+        else if (tempCodeSolution[0] == tempCodeSolution[1])
+        {
+            GetDigitChild(0);
+            GetDigitChild(1);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[2])
+        {
+            GetDigitChild(0);
+            GetDigitChild(2);
+
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[3])
+        {
+            GetDigitChild(0);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[0] == tempCodeSolution[4])
+        {
+            GetDigitChild(0);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[0] != tempCodeSolution[1] && tempCodeSolution[0] != tempCodeSolution[2] && tempCodeSolution[0] != tempCodeSolution[3] && tempCodeSolution[0] != tempCodeSolution[4])
+            GetDigitChild(0);
+        else
+            code.displayCode.text = "";
+    }
+
+    private void CheckSecondCharacterH()
+    {
+        if (tempCodeSolution[1] == tempCodeSolution[2] && tempCodeSolution[1] == tempCodeSolution[3] && tempCodeSolution[1] == tempCodeSolution[4])
+        {
+            GetDigitChild(1);
+            GetDigitChild(2);
+            GetDigitChild(3);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[1] == tempCodeSolution[2] && tempCodeSolution[1] == tempCodeSolution[4])
+        {
+            GetDigitChild(1);
+            GetDigitChild(2);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[1] == tempCodeSolution[2] && tempCodeSolution[1] == tempCodeSolution[3])
+        {
+            GetDigitChild(1);
+            GetDigitChild(2);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[1] == tempCodeSolution[3] && tempCodeSolution[1] == tempCodeSolution[4])
+        {
+            GetDigitChild(1);
+            GetDigitChild(3);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[1] == tempCodeSolution[4])
+        {
+            GetDigitChild(1);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[1] == tempCodeSolution[3])
+        {
+            GetDigitChild(1);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[1] == tempCodeSolution[2])
+        {
+            GetDigitChild(1);
+            GetDigitChild(2);
+        }
+        else if (tempCodeSolution[1] != tempCodeSolution[2] && tempCodeSolution[1] != tempCodeSolution[3] && tempCodeSolution[1] != tempCodeSolution[4])
+            GetDigitChild(1);
+        else
+            code.displayCode.text = "";
+    }
+
+    private void CheckThirdCharacterH()
+    {
+        if (tempCodeSolution[2] == tempCodeSolution[3] && tempCodeSolution[2] == tempCodeSolution[4])
+        {
+            GetDigitChild(2);
+            GetDigitChild(3);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[2] == tempCodeSolution[4])
+        {
+            GetDigitChild(2);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[2] == tempCodeSolution[3])
+        {
+            GetDigitChild(2);
+            GetDigitChild(3);
+        }
+        else if (tempCodeSolution[2] != tempCodeSolution[3] && tempCodeSolution[2] != tempCodeSolution[4])
+            GetDigitChild(2);
+        else
+            code.displayCode.text = "";
+    }
+
+    private void CheckFourthCharacterH()
+    {
+        if (tempCodeSolution[3] == tempCodeSolution[4])
+        {
+            GetDigitChild(3);
+            GetDigitChild(4);
+        }
+        else if (tempCodeSolution[3] != tempCodeSolution[4])
+            GetDigitChild(3);
+        else
+            code.displayCode.text = "";
     }
 
     private Text GetDigitChild(int i)
     {
-        var textChildrenNext = code.gameObject.transform.GetChild(i);
-        code.displayCode = textChildrenNext.GetComponent<Text>();
-        Text tempDisplayCodeNext = code.displayCode;
-        tempDisplayCodeNext.text = tempCodeSolution[i].ToString();
+        var textChild = code.gameObject.transform.GetChild(i);
+        code.displayCode = textChild.GetComponent<Text>();
+        Text tempDisplayCode = code.displayCode;
+        tempDisplayCode.text = tempCodeSolution[i].ToString();
 
-        StartCoroutine(CancelDigit(tempDisplayCodeNext));
+        StartCoroutine(CancelDigit(tempDisplayCode));
 
-        return tempDisplayCodeNext;
-
+        return tempDisplayCode;
     }
 
     private IEnumerator CancelDigit(Text fadeText)
     {
         yield return new WaitForSeconds(3.0f);
         fadeText.text = "";
-
     }
 }
+/* THIS SOLUTION DOESN'T WORK: IT ONLY DISPLAYS THE LAST SOLUTION CHARACTER IN EVERY DIGIT
+ * GUESS I'M NOT THAT SMART?
+*/
+/*
+    for (int i = 0; i<code.gameObject.transform.childCount; i++)
+        {
+            var textChildrenNext = code.gameObject.transform.GetChild(i);
+            code.displayCode = textChildrenNext.GetComponent<Text>();
+            Text tempDisplayCodeNext = code.displayCode;
+            for (int j = 0; j<code.codeSolution.Length; j++)
+            {
+
+                if (slider.value.ToString().Contains(tempCodeSolution[j].ToString()))
+                {
+                    tempDisplayCodeNext.text = slider.value.ToString(); //tempCodeSolution[j].ToString() slider.value.ToString()
+                }
+                else
+                    tempDisplayCodeNext.text = "";
+                
+            }
+     HELP   }*/
