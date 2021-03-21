@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: 7d443422b2fe7f549a878f2dc9540ede
+guid: 9731ed7ce742ef84f86affda67bc2c4a
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_Base_Mat
+    second: {fileID: 2100000, guid: 4c251edb49702714c8b6e7a44a19619b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_Details_Mat
+    second: {fileID: 2100000, guid: d1046b344ffb8f346b66f3660efef03b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_Glass_Mat1
+    second: {fileID: 2100000, guid: e28bcc9d6c4209f4f9055f1becf0fe89, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -45,7 +60,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -81,7 +96,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.099999994
+    globalScale: 10
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
