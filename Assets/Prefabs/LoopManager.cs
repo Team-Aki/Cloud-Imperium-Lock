@@ -26,9 +26,15 @@ public class LoopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (!doors[activeDoor].GetComponent<DoorManager>().lockObject.activeInHierarchy)
+        //{
+        //    doors[activeDoor].GetComponent<DoorManager>().lockObject.SetActive(true);
+        //}
+
         if (doors[activeDoor].GetComponent<DoorManager>().state == DoorManager.State.closed)
         {
             doorTriggeredLastFrame = false;
+            doors[activeDoor].GetComponent<DoorManager>().lockObject.SetActive(true);
         }
         else if (doors[activeDoor].GetComponent<DoorManager>().state == DoorManager.State.open)
         {
@@ -36,6 +42,7 @@ public class LoopManager : MonoBehaviour
             {
                 doors[activeDoor].GetComponent<DoorManager>().doorObject.GetComponent<Animation>().clip = doors[activeDoor].GetComponent<DoorManager>().doorObject.GetComponent<Animation>().GetClip("Open");
                 doors[activeDoor].GetComponent<DoorManager>().doorObject.GetComponent<Animation>().Play();
+                doors[activeDoor].GetComponent<DoorManager>().lockObject.SetActive(false);
             }
             else if (!doors[activeDoor].GetComponent<DoorManager>().doorObject.GetComponent<Animation>().isPlaying)
             {
@@ -49,6 +56,7 @@ public class LoopManager : MonoBehaviour
         if (doors[activeDoor].GetComponent<DoorManager>().codeExpired)
         {
             doors[activeDoor].GetComponent<DoorManager>().ResetLock();
+            doors[activeDoor].GetComponent<DoorManager>().lockObject.SetActive(false);
             activeDoor--;
         }
 

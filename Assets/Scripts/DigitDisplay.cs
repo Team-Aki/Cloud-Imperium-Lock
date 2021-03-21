@@ -29,7 +29,15 @@ public class DigitDisplay : MonoBehaviour
 
     private string solutionChars = "0123456789";
 
+    [SerializeField]
+    public GameObject door;
+
     private void Awake()
+    {
+        ResetLock();
+    }
+
+    public void ResetLock()
     {
         if (difficulty == Difficulty.EASY)
             maxDigitCount = 3;
@@ -192,10 +200,15 @@ public class DigitDisplay : MonoBehaviour
         if (codeSolution.Contains(codeSolutionEntered))
         {
             success = true;
+
+            door.GetComponent<DoorManager>().state = DoorManager.State.open;
+            ResetDisplay();
+            ResetLock();
             //Open Door
         }
         else
         {
+            door.GetComponent<DoorManager>().codeExpired = true;
             Debug.Log("Fail");
             success = false;
             ResetDisplay();
