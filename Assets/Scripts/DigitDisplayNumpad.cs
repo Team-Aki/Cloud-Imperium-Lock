@@ -24,6 +24,11 @@ public class DigitDisplayNumpad : MonoBehaviour
         code = GameObject.Find("Screen").GetComponent<DigitDisplay>();
     }
 
+    private void Start()
+    {
+        PressButton.ButtonPressed += EnterCode;
+    }
+
     private void OnEnable()
     {
         ResetLock();
@@ -152,8 +157,6 @@ public class DigitDisplayNumpad : MonoBehaviour
         {
             CreateTextObject();
         }
-
-        PressButton.ButtonPressed += EnterCode;
     }
 
     private void CreateTextObject()

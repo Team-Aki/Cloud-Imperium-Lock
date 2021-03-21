@@ -197,11 +197,19 @@ public class DigitDisplay : MonoBehaviour
 
     private void CreateTextObject()
     {
-        displayCode = Instantiate(tempCode, transform.position, Quaternion.identity) as Text;
+        Text tempDisplayCode = displayCode;
+
+        tempDisplayCode = Instantiate(tempCode, transform.position, Quaternion.identity) as Text;
+
+        tempDisplayCode.transform.SetParent(GameObject.Find("Screen").transform, false);
+
+        tempDisplayCode.GetComponentInChildren<Text>();
+
+        /*displayCode = Instantiate(tempCode, transform.position, Quaternion.identity) as Text;
 
         displayCode.transform.SetParent(GameObject.Find("Screen").transform, false);
 
-        displayCode.GetComponentInChildren<Text>();
+        displayCode.GetComponentInChildren<Text>();*/
     }
 
 
@@ -252,9 +260,10 @@ public class DigitDisplay : MonoBehaviour
             codeSolutionEntered = "";
             for (int j = 0; j < transform.childCount; j++)
             {
-                var textChildren = gameObject.transform.GetChild(j);
-                displayCode = textChildren.GetComponent<Text>();
-                displayCode.text = "";
+                var textChildren = gameObject.transform.GetChild(j).gameObject;
+                //displayCode = textChildren.GetComponent<Text>();
+                textChildren.GetComponent<Text>().text = "";
+                //displayCode.text = "";
             }
             counter = 0;
         }
