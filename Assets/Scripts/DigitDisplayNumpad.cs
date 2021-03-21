@@ -24,26 +24,14 @@ public class DigitDisplayNumpad : MonoBehaviour
         code = GameObject.Find("Screen").GetComponent<DigitDisplay>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-
-        maxDigits = code.maxDigitCount;
-
-        counter = 0;
-        codeSolution = code.codeSolution;
-        codeSolutionEntered = code.codeSolutionEntered;
-
-        for (int i = 0; i < maxDigits; i++)
-        {
-            CreateTextObject();
-        }
-
-        PressButton.ButtonPressed += EnterCode;
+        ResetLock();
     }
 
-    private void Update()
+    private void OnDisable()
     {
-       
+        DestroyTextObjects();
     }
 
     private void EnterCode(string digitEntered)
@@ -152,25 +140,58 @@ public class DigitDisplayNumpad : MonoBehaviour
         counter++;
     }
 
+    public void ResetLock()
+    {
+        maxDigits = code.maxDigitCount;
+
+        counter = 0;
+        codeSolution = code.codeSolution;
+        codeSolutionEntered = code.codeSolutionEntered;
+
+        for (int i = 0; i < maxDigits; i++)
+        {
+            CreateTextObject();
+        }
+
+        PressButton.ButtonPressed += EnterCode;
+    }
+
     private void CreateTextObject()
     {
-        displayCode = Instantiate(tempCode, transform.position, Quaternion.identity) as Text;
+        Text tempDisplayCode = displayCode;
 
-        displayCode.transform.SetParent(GameObject.Find("DigitScreen").transform, false);
+        tempDisplayCode = Instantiate(tempCode, transform.position, Quaternion.identity) as Text;
 
-        displayCode.GetComponentInChildren<Text>();
+        tempDisplayCode.transform.SetParent(GameObject.Find("DigitScreen").transform, false);
+
+        tempDisplayCode.GetComponentInChildren<Text>();
+    }
+
+    private void DestroyTextObjects()
+    {
+        for (int j = 0; j < transform.childCount; j++)
+        {
+            var textChildren = gameObject.transform.GetChild(j).gameObject;
+            //displayCode = textChildren.GetComponent<Text>();
+
+            if (transform.childCount > maxDigits)
+            {
+                Destroy(textChildren);
+            }
+
+        }
     }
 
     private void CheckResults()
     {
         if (codeSolution.Contains(codeSolutionEntered))
         {
-            Debug.Log("Success");
+            ResetDisplay();
+            //ResetLock();
             //Open Door
         }
         else
         {
-            Debug.Log("Fail");
             ResetDisplay();
             //Reset
             //Attempts==

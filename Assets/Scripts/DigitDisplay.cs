@@ -32,10 +32,21 @@ public class DigitDisplay : MonoBehaviour
     [SerializeField]
     public GameObject door;
 
-    private void Awake()
+    private void OnEnable()
     {
         ResetLock();
     }
+
+    private void OnDisable()
+    {
+        DestroyTextObjects();
+    }
+
+    private void Start()
+    {
+        PressButton.ButtonPressed += EnterCode;
+    }
+
 
     public void ResetLock()
     {
@@ -61,10 +72,6 @@ public class DigitDisplay : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        PressButton.ButtonPressed += EnterCode;
-    }
 
     private void CreateCodeSolution()
     {
@@ -76,43 +83,43 @@ public class DigitDisplay : MonoBehaviour
         switch (digitEntered)
         {
             case "Zero":
-                GenerateText(0);
+                //GenerateText(0);
                 AddCharacterToSolutionCheck(0);
                 break;
             case "One":
-                GenerateText(1);
+                //GenerateText(1);
                 AddCharacterToSolutionCheck(1);
                 break;
             case "Two":
-                GenerateText(2);
+                //GenerateText(2);
                 AddCharacterToSolutionCheck(2);
                 break;
             case "Three":
-                GenerateText(3);
+                //GenerateText(3);
                 AddCharacterToSolutionCheck(3);
                 break;
             case "Four":
-                GenerateText(4);
+                //GenerateText(4);
                 AddCharacterToSolutionCheck(4);
                 break;
             case "Five":
-                GenerateText(5);
+                //GenerateText(5);
                 AddCharacterToSolutionCheck(5);
                 break;
             case "Six":
-                GenerateText(6);
+                //GenerateText(6);
                 AddCharacterToSolutionCheck(6);
                 break;
             case "Seven":
-                GenerateText(7);
+                //GenerateText(7);
                 AddCharacterToSolutionCheck(7);
                 break;
             case "Eight":
-                GenerateText(8);
+                //GenerateText(8);
                 AddCharacterToSolutionCheck(8);
                 break;
             case "Nine":
-                GenerateText(9);
+                //GenerateText(9);
                 AddCharacterToSolutionCheck(9);
                 break;
         }
@@ -129,13 +136,13 @@ public class DigitDisplay : MonoBehaviour
             CheckResults();
     }
 
-    public void CheckSolutionForReset()
+/*    public void CheckSolutionForReset()
     {
         if (codeSolution.Length == codeSolutionEntered.Length)
             CheckResults();
-    }
+    }*/
 
-    private void GenerateText(int digitEntered) //counter to limit instances
+   /* private void GenerateText(int digitEntered) //counter to limit instances
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -169,22 +176,24 @@ public class DigitDisplay : MonoBehaviour
             }
         }
        
-    }
+    }*/
 
     private void DebugSolution(string codeSolution)
     {
         Debug.Log("Solution " + codeSolution);
     }
 
-    private void AddCharacter(int digitEntered) //create child object with text of one character
+    /*private void AddCharacter(int digitEntered) //create child object with text of one character
     {
         var textChildren = gameObject.transform.GetChild(counter);
         displayCode = textChildren.GetComponent<Text>();
 
-        if(displayCode.text.Length < 1)
+        digitEntered.ToString("");
+
+        if (displayCode.text.Length < 1)
             displayCode.text += digitEntered;
         counter++;
-    }
+    }*/
 
     private void CreateTextObject()
     {
@@ -195,24 +204,41 @@ public class DigitDisplay : MonoBehaviour
         displayCode.GetComponentInChildren<Text>();
     }
 
+
+    private void DestroyTextObjects()
+    {
+        for (int j = 0; j < transform.childCount; j++)
+        {
+            var textChildren = gameObject.transform.GetChild(j).gameObject;
+            //displayCode = textChildren.GetComponent<Text>();
+
+            if (transform.childCount > maxDigitCount)
+            {
+                Destroy(textChildren);
+            }
+
+        }
+    }
+    
+
     private void CheckResults()
     {
         if (codeSolution.Contains(codeSolutionEntered))
         {
             success = true;
-
+            //Debug.Log("Success");
             door.GetComponent<DoorManager>().state = DoorManager.State.open;
             ResetDisplay();
-            ResetLock();
+            //ResetLock();
             //Open Door
         }
         else
         {
             door.GetComponent<DoorManager>().codeExpired = true;
-            Debug.Log("Fail");
+            //Debug.Log("Fail");
             success = false;
             ResetDisplay();
-            DebugSolution(codeSolution);
+            //DebugSolution(codeSolution);
             //Reset
             //Attempts==
             //Maybe Create new Solution

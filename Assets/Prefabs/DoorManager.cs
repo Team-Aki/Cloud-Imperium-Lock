@@ -11,18 +11,20 @@ public class DoorManager : MonoBehaviour
 
     public enum State { open, closed }
     [SerializeField]
-    public State state = State.closed;
+    public State state;
 
     [SerializeField]
     public bool codeExpired = false;
 
-    public enum Difficulty { easy, medium, hard, wtf }
-    [SerializeField]
-    public Difficulty difficulty;
+/*    private enum Difficulty { easy, medium, hard, wtf }
+
+    //[SerializeField]
+    private Difficulty difficulty;*/
 
     // Start is called before the first frame update
     void Start()
     {
+        //state = State.closed;
         ResetLock();
     }
 
