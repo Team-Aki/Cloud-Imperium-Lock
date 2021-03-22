@@ -225,12 +225,7 @@ public class DigitDisplay : MonoBehaviour
         {
             var textChildren = gameObject.transform.GetChild(j).gameObject;
             //displayCode = textChildren.GetComponent<Text>();
-
-            if (transform.childCount > maxDigitCount)
-            {
-                Destroy(textChildren);
-            }
-
+            Destroy(textChildren);
         }
     }
     

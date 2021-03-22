@@ -177,10 +177,7 @@ public class DigitDisplayNumpad : MonoBehaviour
             var textChildren = gameObject.transform.GetChild(j).gameObject;
             //displayCode = textChildren.GetComponent<Text>();
 
-            if (transform.childCount > maxDigits)
-            {
-                Destroy(textChildren);
-            }
+            Destroy(textChildren);
 
         }
     }
