@@ -47,7 +47,6 @@ public class DigitDisplay : MonoBehaviour
         PressButton.ButtonPressed += EnterCode;
     }
 
-
     public void ResetLock()
     {
         if (difficulty == Difficulty.EASY)

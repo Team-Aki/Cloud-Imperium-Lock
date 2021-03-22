@@ -64,8 +64,10 @@ public class SlidePos : MonoBehaviour
         {
             GetDigitChild(2);
         }
-        else
-            code.displayCode.text = "";
+/*        else
+            code.displayCode.text = "";*/
+
+            
     }
 
     private void ShowSolutionTextH()
@@ -88,8 +90,8 @@ public class SlidePos : MonoBehaviour
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[4].ToString()))
             GetDigitChild(4);
-        else
-            code.displayCode.text = "";
+/*        else
+            code.displayCode.text = "";*/
     }
 
     private void ShowSolutionTextN()
@@ -108,8 +110,6 @@ public class SlidePos : MonoBehaviour
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[3].ToString()))
             GetDigitChild(3);
-        else
-            code.displayCode.text = "";
     }
     private void CheckFirstCharacterE()
     {
@@ -445,6 +445,8 @@ public class SlidePos : MonoBehaviour
 }
 /* THIS SOLUTION DOESN'T WORK: IT ONLY DISPLAYS THE LAST SOLUTION CHARACTER IN EVERY DIGIT
  * GUESS I'M NOT THAT SMART?
+ * 
+ * ONE SOLUTION WOULD BE TO STORE EACH CHARACTER AND COMPARE THEM AGAINST EACH OTHER WILL TRY THAT IF I HAVE TIME (I DON'T)
 */
 /*
     for (int i = 0; i<code.gameObject.transform.childCount; i++)

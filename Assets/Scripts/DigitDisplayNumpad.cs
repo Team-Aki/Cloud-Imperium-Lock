@@ -209,9 +209,8 @@ public class DigitDisplayNumpad : MonoBehaviour
             codeSolutionEntered = "";
             for (int j = 0; j < transform.childCount; j++)
             {
-                var textChildren = gameObject.transform.GetChild(j);
-                displayCode = textChildren.GetComponent<Text>();
-                displayCode.text = "";
+                var textChildren = gameObject.transform.GetChild(j).gameObject;
+                textChildren.GetComponent<Text>().text = "";
             }
             counter = 0;
         }

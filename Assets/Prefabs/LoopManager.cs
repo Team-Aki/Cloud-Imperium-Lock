@@ -16,6 +16,8 @@ public class LoopManager : MonoBehaviour
     [SerializeField]
     private int activeDoor = 0;
 
+    private int firstDoor = 0;
+
     private bool doorTriggeredLastFrame = false;
 
     // Start is called before the first frame update
