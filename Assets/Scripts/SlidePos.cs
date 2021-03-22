@@ -21,13 +21,15 @@ public class SlidePos : MonoBehaviour
 
         code = GameObject.Find("Screen").GetComponent<DigitDisplay>();
 
-        tempCodeSolution = code.codeSolution;
-
-        //string sliderValue = code.codeSolution;
+      
     }
 
     private void Update()
     {
+        tempCodeSolution = code.codeSolution;
+
+        //Debug.Log("Code from slider" + code.codeSolution);
+
         if (code.success)
         {
             slider.enabled = false;

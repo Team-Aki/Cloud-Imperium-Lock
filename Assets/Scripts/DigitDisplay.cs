@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/* This class checks the solution and the characters in the slider
+ 
+     
+     
+     */
+
+
 public class DigitDisplay : MonoBehaviour
 {
     public enum Difficulty
