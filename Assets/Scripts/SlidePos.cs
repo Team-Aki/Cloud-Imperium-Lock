@@ -24,17 +24,10 @@ public class SlidePos : MonoBehaviour
       
     }
 
+    
     private void Update()
     {
-        tempCodeSolution = code.codeSolution;
-
-        //Debug.Log("Code from slider" + code.codeSolution);
-
-        if (code.success)
-        {
-            slider.enabled = false;
-        }
-            
+        tempCodeSolution = code.codeSolution; //Always get the code solution          
     }
 
     public void SliderChange()
@@ -66,10 +59,11 @@ public class SlidePos : MonoBehaviour
         {
             GetDigitChild(2);
         }
-/*        else
-            code.displayCode.text = "";*/
-
-            
+        else
+        {
+            Text tempDisplayCode = code.displayCode;
+            tempDisplayCode.text = "";
+        }
     }
 
     private void ShowSolutionTextH()
@@ -92,8 +86,11 @@ public class SlidePos : MonoBehaviour
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[4].ToString()))
             GetDigitChild(4);
-/*        else
-            code.displayCode.text = "";*/
+        else
+        {
+            Text tempDisplayCode = code.displayCode;
+            tempDisplayCode.text = "";
+        }
     }
 
     private void ShowSolutionTextN()
@@ -112,7 +109,13 @@ public class SlidePos : MonoBehaviour
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[3].ToString()))
             GetDigitChild(3);
+        else
+        {
+            Text tempDisplayCode = code.displayCode;
+            tempDisplayCode.text = "";
+        }
     }
+
     private void CheckFirstCharacterE()
     {
         if (tempCodeSolution[0] == tempCodeSolution[1] && tempCodeSolution[0] == tempCodeSolution[2])
@@ -446,7 +449,6 @@ public class SlidePos : MonoBehaviour
     }
 }
 /* THIS SOLUTION DOESN'T WORK: IT ONLY DISPLAYS THE LAST SOLUTION CHARACTER IN EVERY DIGIT
- * GUESS I'M NOT THAT SMART?
  * 
  * ONE SOLUTION WOULD BE TO STORE EACH CHARACTER AND COMPARE THEM AGAINST EACH OTHER WILL TRY THAT IF I HAVE TIME (I DON'T)
 */

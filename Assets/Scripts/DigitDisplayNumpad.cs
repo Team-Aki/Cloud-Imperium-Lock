@@ -19,6 +19,11 @@ public class DigitDisplayNumpad : MonoBehaviour
 
     private DigitDisplay code;
 
+    /* This class checks the solution from DigitalDisplay and
+     * displays the actual characters in the screen
+     
+         */
+
     private void Awake()
     {
         code = GameObject.Find("Screen").GetComponent<DigitDisplay>();

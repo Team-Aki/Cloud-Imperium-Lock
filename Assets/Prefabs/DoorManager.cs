@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DoorManager : MonoBehaviour
 {
@@ -16,10 +17,10 @@ public class DoorManager : MonoBehaviour
     [SerializeField]
     public bool codeExpired = false;
 
-/*    private enum Difficulty { easy, medium, hard, wtf }
+    /*    private enum Difficulty { easy, medium, hard, wtf }
 
-    //[SerializeField]
-    private Difficulty difficulty;*/
+        //[SerializeField]
+        private Difficulty difficulty;*/
 
     // Start is called before the first frame update
     void Start()
