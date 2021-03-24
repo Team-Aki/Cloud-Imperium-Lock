@@ -11,7 +11,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hard_Jam_Mat
-    second: {fileID: 2100000, guid: 3f881b6ace9795a4aabe2b44341497fd, type: 2}
+    second: {fileID: 2100000, guid: 76f77272b5aab7e4996c6538ae1f4cb6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -21,12 +21,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hard_second_door_material1
-    second: {fileID: 2100000, guid: 3f881b6ace9795a4aabe2b44341497fd, type: 2}
+    second: {fileID: 2100000, guid: 8fb17a5711dd702498ea8312aeb05cdc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: hard_door_small_pieces
-    second: {fileID: 2100000, guid: 3f881b6ace9795a4aabe2b44341497fd, type: 2}
+    second: {fileID: 2100000, guid: b920b51bc1bd41f4a84dcb4e414a7a5c, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -59,11 +59,11 @@ public class SlidePos : MonoBehaviour
         {
             GetDigitChild(2);
         }
-        else
-        {
-            Text tempDisplayCode = code.displayCode;
-            tempDisplayCode.text = "";
-        }
+        //else
+        //{
+        //    DigitDisplay tempDisplayCode = GetComponent<DigitDisplay>();
+        //    tempDisplayCode.displayCode.text = "";
+        //}
     }
 
     private void ShowSolutionTextH()
@@ -86,11 +86,11 @@ public class SlidePos : MonoBehaviour
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[4].ToString()))
             GetDigitChild(4);
-        else
-        {
-            Text tempDisplayCode = code.displayCode;
-            tempDisplayCode.text = "";
-        }
+        //else
+        //{
+        //    Text tempDisplayCode = code.displayCode;
+        //    tempDisplayCode.text = "";
+        //}
     }
 
     private void ShowSolutionTextN()
@@ -109,11 +109,11 @@ public class SlidePos : MonoBehaviour
         }
         else if (slider.value.ToString().Contains(tempCodeSolution[3].ToString()))
             GetDigitChild(3);
-        else
-        {
-            Text tempDisplayCode = code.displayCode;
-            tempDisplayCode.text = "";
-        }
+        //else
+        //{
+        //    Text tempDisplayCode = code.displayCode;
+        //    tempDisplayCode.text = "";
+        //}
     }
 
     private void CheckFirstCharacterE()
@@ -444,7 +444,7 @@ public class SlidePos : MonoBehaviour
 
     private IEnumerator CancelDigit(Text fadeText)
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.0f);
         fadeText.text = "";
     }
 }
