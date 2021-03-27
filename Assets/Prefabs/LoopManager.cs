@@ -37,13 +37,13 @@ public class LoopManager : MonoBehaviour
         {
             doorTriggeredLastFrame = false;
             doors[activeDoor].GetComponent<DoorManager>().lockObject.SetActive(true);
-            Debug.Log("active door " + activeDoor);
+            //Debug.Log("active door " + activeDoor);
         }
         else if (doors[activeDoor].GetComponent<DoorManager>().state == DoorManager.State.open)
         {
             if (!doors[activeDoor].GetComponent<DoorManager>().doorObject.GetComponent<Animation>().isPlaying && !doorTriggeredLastFrame)
             {
-                Debug.Log("active door 2nd check" + activeDoor);
+                //Debug.Log("active door 2nd check" + activeDoor);
                 doors[activeDoor].GetComponent<DoorManager>().doorObject.GetComponent<Animation>().clip = doors[activeDoor].GetComponent<DoorManager>().doorObject.GetComponent<Animation>().GetClip("Open");
                 doors[activeDoor].GetComponent<DoorManager>().doorObject.GetComponent<Animation>().Play();
                 doors[activeDoor].GetComponent<DoorManager>().lockObject.SetActive(false);
@@ -51,7 +51,7 @@ public class LoopManager : MonoBehaviour
             }
             else if (!doors[activeDoor].GetComponent<DoorManager>().doorObject.GetComponent<Animation>().isPlaying)
             {
-                Debug.Log("active door 3rd check" + activeDoor);
+                //Debug.Log("active door 3rd check" + activeDoor);
                 doors[activeDoor].GetComponent<DoorManager>().ResetLock();
                 activeDoor++;
             }
@@ -64,11 +64,11 @@ public class LoopManager : MonoBehaviour
             doors[activeDoor].GetComponent<DoorManager>().ResetLock();
             doors[activeDoor].GetComponent<DoorManager>().lockObject.SetActive(false);
 
-            Debug.Log("active door back " + activeDoor);
+            //Debug.Log("active door back " + activeDoor);
 
             //activeDoor--;
 
-            Debug.Log("active door back after " + activeDoor);
+            //Debug.Log("active door back after " + activeDoor);
 
 
             /*if (activeDoor == 3)
